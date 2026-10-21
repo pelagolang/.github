@@ -1,0 +1,22 @@
+name: Feature request
+description: Suggest a feature or a language change
+title: "feat: "
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What are you trying to do that is hard or impossible today? Start here, before the syntax.
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: Proposal
+      description: What you would like to see, with a short example if it is a language change.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
