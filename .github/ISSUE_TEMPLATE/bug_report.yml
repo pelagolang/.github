@@ -1,7 +1,12 @@
 name: Bug report
-description: Something is wrong or crashes
+description: Something is wrong, crashes, or miscompiles
 title: "bug: "
 body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. A small `.pel` file and the output of `pelago --version` help most.
+        Security problems: do not use issues, see the security policy linked on the previous page.
   - type: textarea
     id: what
     attributes:
@@ -13,10 +18,32 @@ body:
     id: repro
     attributes:
       label: Minimal reproduction
-      description: A small `.pel` file or the exact steps, and the command you ran.
+      description: A small `.pel` file (the smaller the better) or the exact steps, and the command you ran.
       render: text
     validations:
       required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Where it goes wrong
+      options:
+        - Lexer or parser (syntax error, wrong tree)
+        - Type checker (wrong or missing error)
+        - Interpreter (`pelago run`, `--interp`)
+        - Native build (`pelago build`, `run --native`)
+        - Formatter (`pelago fmt`)
+        - Language server or editor extension
+        - Standard library (`core`, `std`)
+        - Islet (package manager)
+        - Not sure
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: Output or error
+      description: The compiler output, panic message, or wrong result.
+      render: text
   - type: input
     id: version
     attributes:
@@ -29,6 +56,11 @@ body:
     attributes:
       label: Operating system and CPU
       placeholder: Windows 11 x86-64, Ubuntu 24.04 aarch64, ...
+  - type: input
+    id: flags
+    attributes:
+      label: Flags used
+      description: Anything like `--opt`, `--native`, `--no-opt`, `--target=windows`, `--arch=aarch64`.
   - type: textarea
     id: extra
     attributes:
