@@ -1,0 +1,50 @@
+name: Tooling request
+description: A new command, flag, target, or behaviour for the compiler, formatter, language server, or build
+title: "feat(tool): "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For a change to the **language** (syntax or semantics) use *Language proposal*. For a missing **library** function use *Standard library request*. This form is for the tools around them.
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: Before you submit
+      options:
+        - label: I searched open and closed issues and the task board under `docs/plans/`
+          required: true
+  - type: dropdown
+    id: tool
+    attributes:
+      label: Tool
+      options:
+        - Compiler (`check`, `ir`, diagnostics)
+        - Native backend or a new target
+        - Interpreter
+        - Formatter (`pelago fmt`)
+        - Language server
+        - Build, flags or project layout
+        - Benchmarks or test harness
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What you are trying to do and why the current tools make it hard.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: The command, flag or behaviour you want, with an example invocation and its output.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives
+      description: What you do today, and other designs you considered.
