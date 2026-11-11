@@ -1,0 +1,61 @@
+name: Performance problem
+description: Slow compile, slow generated code, large binary, or high memory use
+title: "perf: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Speed is a project goal: generated code should match or beat `gcc -O2` and Rust, and the compiler itself should be fast. Numbers make a report actionable, so please include them.
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: Before you submit
+      options:
+        - label: I searched open and closed issues and the notes under `docs/perf/`
+          required: true
+        - label: I measured on a build with optimisation on (default `build`, or `--opt`)
+          required: true
+  - type: dropdown
+    id: what
+    attributes:
+      label: What is slow or large
+      options:
+        - Generated code is slower than C, C++ or Rust
+        - Compile time
+        - Binary size
+        - Memory use at run time
+        - Interpreter speed
+        - Language server responsiveness
+        - Regression from an earlier version
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Program and command
+      description: The `.pel` program (and the C, C++ or Rust equivalent if you compare) and how you measured, for example `pelago build --timings`.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: numbers
+    attributes:
+      label: Numbers
+      description: Time, size or memory for Pelago and for the comparison, with compiler versions and flags (`gcc -O2`, `rustc -O`, and so on). Say how many runs.
+      render: text
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Output of `pelago --version` (or the commit hash). For a regression, also the last good version.
+    validations:
+      required: true
+  - type: input
+    id: platform
+    attributes:
+      label: Hardware and operating system
+      placeholder: i5-8265U, 16 GB, Windows 11; Ryzen 7 7840U, Ubuntu 24.04
+    validations:
+      required: true

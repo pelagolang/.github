@@ -1,0 +1,71 @@
+name: Editor or language server
+description: Problem with syntax highlighting, completion, diagnostics, formatting, or the VS Code, Zed, or tree-sitter packages
+title: "bug(editor): "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        If this issue was opened in the wrong repository, a maintainer will move it. Editor extensions never change your theme; a report that one does is a bug.
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: Before you submit
+      options:
+        - label: I searched open and closed issues
+          required: true
+        - label: I updated the extension and `pelago` to the latest version
+          required: true
+  - type: dropdown
+    id: editor
+    attributes:
+      label: Editor
+      options:
+        - VS Code
+        - Zed
+        - Neovim or another tree-sitter editor
+        - Other editor using `pelago lsp`
+        - Not sure
+    validations:
+      required: true
+  - type: dropdown
+    id: feature
+    attributes:
+      label: Feature
+      options:
+        - Syntax highlighting
+        - Diagnostics
+        - Completion
+        - Hover or go to definition
+        - Formatting
+        - Rename or references
+        - Language server will not start or crashes
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: What you did and what happened
+      description: A short `.pel` snippet that shows it, what you expected, and a screenshot if it is visual.
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: Language server or extension output. In Zed use the language server log, in VS Code the Pelago output channel.
+      render: text
+  - type: input
+    id: versions
+    attributes:
+      label: Versions
+      description: Editor version, extension version, and `pelago --version`.
+    validations:
+      required: true
+  - type: input
+    id: platform
+    attributes:
+      label: Operating system
+      placeholder: Windows 11, Ubuntu 24.04, macOS 15
+    validations:
+      required: true

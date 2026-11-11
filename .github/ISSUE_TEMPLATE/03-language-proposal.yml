@@ -1,0 +1,58 @@
+name: Language proposal
+description: Propose a change to syntax or semantics
+title: "feat(lang): "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Start with the problem, not the syntax. Pelago has a short list of settled decisions (no GC, no runtime, no exceptions, no null, value semantics, symbol operators only, one `switch`). Proposals that reverse one need a strong case. Please read the design docs under `docs/design/` in the pelago repository first.
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: Before you submit
+      options:
+        - label: I searched open and closed issues and the design docs
+          required: true
+        - label: This is not a bug. A wrong diagnostic or result belongs in a bug report
+          required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What you are trying to do and why it is hard or impossible today. Include a real program if you have one.
+    validations:
+      required: true
+  - type: textarea
+    id: today
+    attributes:
+      label: How you solve it today
+      description: The current workaround, written in Pelago.
+      render: text
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: The change, with the same example rewritten using it. Say what it costs in the grammar, the checker and the generated code.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives
+      description: Other designs you considered, including doing nothing, and why you prefer this one.
+    validations:
+      required: true
+  - type: checkboxes
+    id: impact
+    attributes:
+      label: Affects
+      options:
+        - label: Existing programs (breaking change)
+        - label: Memory model or access modes (`let`, `inout`, `sink`)
+        - label: Generated code size or speed
+        - label: Editor support (grammar, formatter, language server)
+  - type: textarea
+    id: prior
+    attributes:
+      label: Prior art
+      description: How other languages handle it, and what to borrow or avoid.
