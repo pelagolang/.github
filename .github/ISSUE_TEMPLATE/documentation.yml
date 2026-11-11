@@ -1,0 +1,30 @@
+name: Documentation
+description: Something in the docs, tour, or examples is wrong, missing, or unclear
+title: "docs: "
+body:
+  - type: input
+    id: where
+    attributes:
+      label: Where
+      description: A link or a path, for example `docs/design/types.md` or `examples/tour.pel`.
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What is the problem
+      options:
+        - Wrong or out of date
+        - Missing
+        - Unclear
+        - Example does not compile or run
+        - Typo or broken link
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: What you read, what you expected, and what would help. For an example that fails, include the `pelago --version` output and the error.
+    validations:
+      required: true
