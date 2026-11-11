@@ -1,0 +1,44 @@
+name: Standard library request
+description: Missing or inconsistent API in `core` or `std`
+title: "feat(std): "
+body:
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: Before you submit
+      options:
+        - label: I searched open and closed issues, and `compiler/core` and `compiler/std` for an existing function
+          required: true
+  - type: dropdown
+    id: package
+    attributes:
+      label: Package
+      options:
+        - core
+        - std
+        - Not sure
+    validations:
+      required: true
+  - type: input
+    id: module
+    attributes:
+      label: Module
+      description: For example `iter`, `option`, `str`, `time`, `fs`, `regex`, `json`.
+  - type: textarea
+    id: need
+    attributes:
+      label: What you need
+      description: The task you are trying to do and what is missing. A short program that would use it is ideal.
+    validations:
+      required: true
+  - type: textarea
+    id: api
+    attributes:
+      label: Proposed API
+      description: Signatures and behaviour, including errors (`result`, `option`) and which access mode each parameter takes.
+      render: text
+  - type: textarea
+    id: comparison
+    attributes:
+      label: Comparison
+      description: What the equivalent looks like in Rust, Go, C or Python's standard library, if it helps.

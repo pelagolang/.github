@@ -1,0 +1,84 @@
+name: Miscompile or wrong result
+description: A program builds but gives a wrong result, or breaks a safety guarantee (overflow trap, memory safety, value semantics)
+title: "bug(codegen): "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        These are the most valuable reports we get. Pelago promises exact overflow traps and memory safety for programs that type check, with no runtime to hide behind. If the compiler breaks that, tell us.
+
+        If the bug lets someone attack a user of a Pelago program or the toolchain, report it privately through the Security tab instead.
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: Before you submit
+      options:
+        - label: I searched open and closed issues and found no duplicate
+          required: true
+        - label: The program type checks cleanly with `pelago check`
+          required: true
+  - type: dropdown
+    id: backends
+    attributes:
+      label: Which backends give the wrong answer
+      description: Comparing `pelago run --interp` against `--opt` and `--native` usually isolates the stage.
+      multiple: true
+      options:
+        - Interpreter (`--interp`)
+        - Interpreter with `--opt`
+        - Native, unoptimised (`--no-opt`)
+        - Native, optimised (default `build`)
+        - Windows target
+        - aarch64 target
+        - Not sure
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What went wrong
+      options:
+        - Wrong value or output
+        - Missing overflow trap, or a trap where none belongs
+        - Memory safety violation (use after free, out of bounds, leak under `--leak-check`)
+        - Value semantics broken (`let`, `inout`, `sink`, copies, aliasing)
+        - Crash of the built program
+        - Differs between backends or optimisation levels
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Minimal reproduction
+      description: A complete `.pel` program, cut down as far as you can, and the commands for each backend.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual result
+      description: Output per backend, plus `pelago ir` output for the function if you have it.
+      render: text
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Output of `pelago --version` (or the commit hash).
+    validations:
+      required: true
+  - type: input
+    id: platform
+    attributes:
+      label: Operating system and CPU
+      placeholder: Windows 11 x86-64, Ubuntu 24.04 aarch64
+    validations:
+      required: true

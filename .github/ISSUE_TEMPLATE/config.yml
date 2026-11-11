@@ -1,8 +1,11 @@
 blank_issues_enabled: false
 contact_links:
-  - name: Security vulnerability
+  - name: Report a security vulnerability
     url: https://github.com/pelagolang/.github/blob/main/SECURITY.md
-    about: Report security problems privately through the Security tab, not as a public issue.
+    about: Do not open a public issue. Use the Security tab of the affected repository to report privately.
   - name: Questions and help
     url: https://github.com/pelagolang/.github/blob/main/SUPPORT.md
     about: Where to look first, and where to ask.
+  - name: Contributing guide
+    url: https://github.com/pelagolang/.github/blob/main/CONTRIBUTING.md
+    about: Branch names, commit format, and how to send a pull request.

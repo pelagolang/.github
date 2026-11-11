@@ -1,0 +1,63 @@
+name: Islet (package manager)
+description: Bug or request for the Islet package manager, registry, store, lock file, or signing
+title: "islet: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Signing, key handling, hash verification and registry trust problems are security matters: report those privately through the Security tab of the islet repository, not here.
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: Before you submit
+      options:
+        - label: I searched open and closed issues
+          required: true
+  - type: dropdown
+    id: type
+    attributes:
+      label: Type
+      options:
+        - Bug
+        - Feature request
+        - Documentation
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Install, store or cache
+        - Resolution (versions, majors in import paths)
+        - Manifest or lock file (`islet.yaml`, `islet.lock`, `monorepo.yaml`)
+        - Signing or verification
+        - Registry
+        - Integration with `pelago build`
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: For a bug, the steps, what you expected, and what happened, with the manifest and command. For a request, the problem first.
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: Output
+      render: text
+  - type: input
+    id: version
+    attributes:
+      label: Versions
+      description: Output of `islet --version` and `pelago --version`.
+    validations:
+      required: true
+  - type: input
+    id: platform
+    attributes:
+      label: Operating system
+      placeholder: Windows 11, Ubuntu 24.04, macOS 15

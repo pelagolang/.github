@@ -1,0 +1,88 @@
+name: Compiler bug
+description: Wrong or missing diagnostic, crash, hang, or out-of-memory in the compiler, interpreter, checker, or formatter
+title: "bug(compiler): "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this when the compiler tells you the wrong thing or falls over. If a program **builds but behaves wrongly**, use *Miscompile or wrong result* instead. For security problems use the Security tab, not an issue.
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: Before you submit
+      options:
+        - label: I searched open and closed issues and found no duplicate
+          required: true
+        - label: I reproduced it on the latest `main` or the latest release
+          required: true
+  - type: dropdown
+    id: stage
+    attributes:
+      label: Stage
+      description: Where the problem shows up. `pelago lex`, `parse`, `check`, `ir`, `run`, `build`, `fmt` map to these.
+      options:
+        - Lexer
+        - Parser
+        - Name resolution
+        - Type checker
+        - IR lowering or verifier
+        - Interpreter (`run`, `--interp`)
+        - Native build (`build`, `run --native`)
+        - Formatter (`pelago fmt`)
+        - Not sure
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind of failure
+      options:
+        - Rejects a valid program
+        - Accepts an invalid program
+        - Misleading or unhelpful diagnostic
+        - Crash or internal panic
+        - Hang or very slow
+        - Out of memory
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Minimal reproduction
+      description: The smallest `.pel` program that shows it, and the exact command. Please cut it down before posting.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behaviour
+      description: Full compiler output, panic message and backtrace if any.
+      render: text
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Output of `pelago --version` (or the commit hash).
+    validations:
+      required: true
+  - type: input
+    id: platform
+    attributes:
+      label: Operating system and CPU
+      placeholder: Windows 11 x86-64 (PowerShell), Ubuntu 24.04 aarch64, macOS 15 arm64
+    validations:
+      required: true
+  - type: input
+    id: flags
+    attributes:
+      label: Flags
+      description: For example `--opt`, `--no-opt`, `--native`, `--target=windows`, `--arch=aarch64`, `--leak-check`.
