@@ -4,7 +4,7 @@ Thanks for helping. This is the short guide shared by every repository in the or
 
 ## Before you start
 
-- For anything bigger than a small fix, open an issue first so we can agree on the approach. Language changes follow the decisions in [ROADMAP.md](https://github.com/pelagolang/pelago/blob/main/ROADMAP.md) and the design docs under `docs/design/`.
+- For anything bigger than a small fix, open an issue first so we can agree on the approach. Language changes follow the project's settled decisions; open an issue with the language proposal template first.
 - The compiler has no external dependencies on purpose (compile speed is a goal). Ask before adding one.
 
 ## Branches

@@ -11,7 +11,7 @@ body:
     attributes:
       label: Before you submit
       options:
-        - label: I searched open and closed issues and the notes under `docs/perf/`
+        - label: I searched open and closed issues and the benchmark results on the website
           required: true
         - label: I measured on a build with optimisation on (default `build`, or `--opt`)
           required: true
