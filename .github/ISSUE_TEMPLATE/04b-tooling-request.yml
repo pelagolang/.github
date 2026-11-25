@@ -11,7 +11,7 @@ body:
     attributes:
       label: Before you submit
       options:
-        - label: I searched open and closed issues and the task board under `docs/plans/`
+        - label: I searched open and closed issues and the discussions
           required: true
   - type: dropdown
     id: tool

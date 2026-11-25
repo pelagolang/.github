@@ -23,7 +23,7 @@ fn sum_squares(n: int) -> int {
 
 | Repository | What it is |
 |---|---|
-| [pelago](https://github.com/pelagolang/pelago) | The compiler, interpreter, formatter and language server (`pelago`), plus the design docs |
+| [pelago](https://github.com/pelagolang/pelago) | The compiler, interpreter, formatter and language server (`pelago`), plus the language docs |
 | [examples](https://github.com/pelagolang/examples) | Sample programs |
 | [vscode-pelago](https://github.com/pelagolang/vscode-pelago) | VS Code extension: highlighting, snippets, language server |
 | [zed-pelago](https://github.com/pelagolang/zed-pelago) | Zed extension |
@@ -31,7 +31,7 @@ fn sum_squares(n: int) -> int {
 
 ## Start here
 
-- Read the [README](https://github.com/pelagolang/pelago#readme) and the [roadmap](https://github.com/pelagolang/pelago/blob/main/ROADMAP.md).
+- Read the [README](https://github.com/pelagolang/pelago#readme).
 - Take the [syntax tour](https://github.com/pelagolang/pelago/blob/main/examples/tour.pel).
 - Contributing: see [CONTRIBUTING](https://github.com/pelagolang/.github/blob/main/CONTRIBUTING.md). Questions: [SUPPORT](https://github.com/pelagolang/.github/blob/main/SUPPORT.md).
 
